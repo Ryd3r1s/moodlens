@@ -69,7 +69,7 @@ function renderQuestion() {
     // Update progress
     const progress = ((state.currentQuestion + 1) / totalQuestions) * 100;
     elements.progressFill.style.width = `${progress}%`;
-    elements.progressText.textContent = `Question ${state.currentQuestion + 1} of ${totalQuestions}`;
+    elements.progressText.textContent = `Klausimas ${state.currentQuestion + 1} iš ${totalQuestions}`;
 
     // Update question icon
     elements.questionIcon.innerHTML = question.icon;
@@ -107,14 +107,14 @@ function renderQuestion() {
     // Update next button text
     if (state.currentQuestion === totalQuestions - 1) {
         elements.nextBtn.innerHTML = `
-            <span>See Results</span>
+            <span>Žiūrėti rezultatus</span>
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
         `;
     } else {
         elements.nextBtn.innerHTML = `
-            <span>Next</span>
+            <span>Kitas</span>
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>

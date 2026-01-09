@@ -1,19 +1,19 @@
 /**
- * MoodLens - Questions and Scoring Data
+ * MoodLens - Klausimų ir balų duomenys
  *
- * Each question tracks impacts on 5 emotional dimensions:
- * - happiness: Joy, contentment, pleasure (higher = better)
- * - energy: Motivation, vitality, drive (higher = better)
- * - calmness: Peace, relaxation, serenity (higher = better)
- * - stress: Tension, anxiety, overwhelm (lower = better)
- * - sadness: Melancholy, low spirits, grief (lower = better)
+ * Kiekvienas klausimas įvertina 5 emocines dimensijas:
+ * - happiness: Laimė, pasitenkinimas (aukštesnis = geriau)
+ * - energy: Energija, motyvacija (aukštesnis = geriau)
+ * - calmness: Ramybė, atsipalaidavimas (aukštesnis = geriau)
+ * - stress: Stresas, nerimas (žemesnis = geriau)
+ * - sadness: Liūdesys (žemesnis = geriau)
  */
 
 const QUESTIONS = [
     {
         id: 1,
-        text: "How did you feel when you woke up today?",
-        category: "Morning Energy",
+        text: "Kaip jautėtės šįryt pabudę?",
+        category: "Ryto energija",
         icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Sunrise -->
             <path d="M10 55 H70" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
@@ -32,30 +32,30 @@ const QUESTIONS = [
         answers: [
             {
                 letter: "a",
-                text: "Refreshed and excited for the day",
+                text: "Pailsėjęs ir kupinas energijos dienai",
                 scores: { happiness: 15, energy: 15, calmness: 10, stress: -10, sadness: -10 }
             },
             {
                 letter: "b",
-                text: "Okay, ready to get going",
+                text: "Normaliai, pasiruošęs dienai",
                 scores: { happiness: 8, energy: 8, calmness: 5, stress: -5, sadness: -5 }
             },
             {
                 letter: "c",
-                text: "A bit tired, but managing",
+                text: "Šiek tiek pavargęs, bet susitvarkyčiau",
                 scores: { happiness: -5, energy: -5, calmness: 0, stress: 5, sadness: 5 }
             },
             {
                 letter: "d",
-                text: "Exhausted and dreading the day",
+                text: "Išsekęs ir bijau prasidedančios dienos",
                 scores: { happiness: -10, energy: -15, calmness: -10, stress: 15, sadness: 15 }
             }
         ]
     },
     {
         id: 2,
-        text: "How do you feel about interacting with others right now?",
-        category: "Social Connection",
+        text: "Kaip jaučiatės dėl bendravimo su kitais šiuo metu?",
+        category: "Socialiniai ryšiai",
         icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Person 1 -->
             <circle cx="25" cy="28" r="10" fill="currentColor" opacity="0.3"/>
@@ -76,30 +76,30 @@ const QUESTIONS = [
         answers: [
             {
                 letter: "a",
-                text: "Eager to connect and socialize",
+                text: "Noriu bendrauti ir socializuotis",
                 scores: { happiness: 15, energy: 12, calmness: 8, stress: -8, sadness: -12 }
             },
             {
                 letter: "b",
-                text: "Open to it if it happens",
+                text: "Atviras tam, jei taip nutiktų",
                 scores: { happiness: 8, energy: 5, calmness: 8, stress: -3, sadness: -5 }
             },
             {
                 letter: "c",
-                text: "Would rather be alone",
+                text: "Verčiau būčiau vienas",
                 scores: { happiness: -3, energy: -5, calmness: 5, stress: 5, sadness: 8 }
             },
             {
                 letter: "d",
-                text: "Feel isolated or disconnected",
+                text: "Jaučiuosi izoliuotas ir atskirtas",
                 scores: { happiness: -12, energy: -10, calmness: -5, stress: 12, sadness: 15 }
             }
         ]
     },
     {
         id: 3,
-        text: "How would you describe your stress level right now?",
-        category: "Current Stress Level",
+        text: "Kaip apibūdintumėte savo streso lygį šiuo metu?",
+        category: "Streso lygis",
         icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Gauge background -->
             <path d="M15 55 A30 30 0 0 1 65 55" stroke="currentColor" stroke-width="8" stroke-linecap="round" opacity="0.2"/>
@@ -111,36 +111,36 @@ const QUESTIONS = [
             <circle cx="40" cy="55" r="6" fill="currentColor"/>
             <path d="M40 55 L40 28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
             <!-- Labels -->
-            <text x="12" y="68" font-size="8" fill="currentColor" opacity="0.6">Low</text>
-            <text x="56" y="68" font-size="8" fill="currentColor" opacity="0.6">High</text>
+            <text x="8" y="68" font-size="8" fill="currentColor" opacity="0.6">Žemas</text>
+            <text x="52" y="68" font-size="8" fill="currentColor" opacity="0.6">Aukštas</text>
         </svg>`,
         answers: [
             {
                 letter: "a",
-                text: "Very relaxed and at peace",
+                text: "Labai atsipalaidavęs ir ramus",
                 scores: { happiness: 12, energy: 8, calmness: 15, stress: -15, sadness: -8 }
             },
             {
                 letter: "b",
-                text: "Slightly busy but handling it well",
+                text: "Šiek tiek užsiėmęs, bet susitvarko",
                 scores: { happiness: 5, energy: 5, calmness: 8, stress: -5, sadness: -3 }
             },
             {
                 letter: "c",
-                text: "Somewhat overwhelmed",
+                text: "Kiek pervargęs",
                 scores: { happiness: -5, energy: -3, calmness: -8, stress: 10, sadness: 5 }
             },
             {
                 letter: "d",
-                text: "Extremely stressed or anxious",
+                text: "Labai stresą jaučiantis arba neramus",
                 scores: { happiness: -12, energy: -8, calmness: -15, stress: 15, sadness: 12 }
             }
         ]
     },
     {
         id: 4,
-        text: "How does your body feel right now?",
-        category: "Physical Sensations",
+        text: "Kaip jaučiasi jūsų kūnas šiuo metu?",
+        category: "Fiziniai pojūčiai",
         icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Body outline -->
             <circle cx="40" cy="18" r="10" stroke="currentColor" stroke-width="2.5" fill="currentColor" opacity="0.2"/>
@@ -162,30 +162,30 @@ const QUESTIONS = [
         answers: [
             {
                 letter: "a",
-                text: "Energized and comfortable",
+                text: "Energingas ir patogiai",
                 scores: { happiness: 12, energy: 15, calmness: 10, stress: -10, sadness: -8 }
             },
             {
                 letter: "b",
-                text: "Neutral, nothing notable",
+                text: "Neutraliai, nieko ypatingo",
                 scores: { happiness: 5, energy: 5, calmness: 8, stress: -3, sadness: -3 }
             },
             {
                 letter: "c",
-                text: "Tense or uncomfortable",
+                text: "Įsitempęs arba nepatogiai",
                 scores: { happiness: -5, energy: -5, calmness: -8, stress: 10, sadness: 5 }
             },
             {
                 letter: "d",
-                text: "Heavy, fatigued, or in pain",
+                text: "Sunkiai, pavargęs arba skausmingai",
                 scores: { happiness: -10, energy: -15, calmness: -10, stress: 12, sadness: 12 }
             }
         ]
     },
     {
         id: 5,
-        text: "What best describes your thoughts lately?",
-        category: "Thought Patterns",
+        text: "Kas geriausiai apibūdina jūsų mintis pastaruoju metu?",
+        category: "Minčių pobūdis",
         icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Brain outline -->
             <path d="M25 45 C15 45 12 35 18 28 C15 22 20 15 28 15 C30 10 38 8 45 12 C52 8 62 12 62 22 C68 25 68 35 62 40 C65 48 58 55 50 52 C45 58 35 58 30 52 C22 55 18 50 25 45Z"
@@ -204,30 +204,30 @@ const QUESTIONS = [
         answers: [
             {
                 letter: "a",
-                text: "Positive and hopeful",
+                text: "Pozityvios ir viltingos",
                 scores: { happiness: 15, energy: 12, calmness: 10, stress: -10, sadness: -12 }
             },
             {
                 letter: "b",
-                text: "Mostly neutral, going with the flow",
+                text: "Daugiausia neutralios, einu su srautu",
                 scores: { happiness: 5, energy: 5, calmness: 10, stress: -5, sadness: -5 }
             },
             {
                 letter: "c",
-                text: "Worried or repetitive",
+                text: "Nerimastingos arba pasikartojančios",
                 scores: { happiness: -8, energy: -5, calmness: -10, stress: 12, sadness: 8 }
             },
             {
                 letter: "d",
-                text: "Dark or self-critical",
+                text: "Tamsios arba savikritikos kupinos",
                 scores: { happiness: -15, energy: -10, calmness: -12, stress: 15, sadness: 15 }
             }
         ]
     },
     {
         id: 6,
-        text: "How interested are you in doing activities you usually enjoy?",
-        category: "Activity Interest",
+        text: "Kiek jus domina veikla, kuri paprastai teikia malonumą?",
+        category: "Susidomėjimas veikla",
         icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Palette -->
             <ellipse cx="35" cy="45" rx="22" ry="18" fill="currentColor" opacity="0.2" stroke="currentColor" stroke-width="2.5"/>
@@ -249,30 +249,30 @@ const QUESTIONS = [
         answers: [
             {
                 letter: "a",
-                text: "Very interested, can't wait",
+                text: "Labai susidomėjęs, nekantrauju",
                 scores: { happiness: 15, energy: 15, calmness: 8, stress: -8, sadness: -12 }
             },
             {
                 letter: "b",
-                text: "Somewhat interested",
+                text: "Šiek tiek susidomėjęs",
                 scores: { happiness: 8, energy: 8, calmness: 5, stress: -3, sadness: -5 }
             },
             {
                 letter: "c",
-                text: "Not really feeling it today",
+                text: "Nelabai jaučiu norą šiandien",
                 scores: { happiness: -5, energy: -8, calmness: 0, stress: 5, sadness: 8 }
             },
             {
                 letter: "d",
-                text: "Nothing sounds appealing at all",
+                text: "Niekas neatrodo patraukliai",
                 scores: { happiness: -12, energy: -15, calmness: -5, stress: 10, sadness: 15 }
             }
         ]
     },
     {
         id: 7,
-        text: "How stable have your emotions felt recently?",
-        category: "Emotional Stability",
+        text: "Kaip stabiliai jautėsi jūsų emocijos pastaruoju metu?",
+        category: "Emocinis stabilumas",
         icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Balance base -->
             <rect x="35" y="60" width="10" height="12" fill="currentColor" opacity="0.3"/>
@@ -293,30 +293,30 @@ const QUESTIONS = [
         answers: [
             {
                 letter: "a",
-                text: "Very stable and balanced",
+                text: "Labai stabiliai ir subalansuotai",
                 scores: { happiness: 10, energy: 8, calmness: 15, stress: -12, sadness: -8 }
             },
             {
                 letter: "b",
-                text: "Mostly steady with minor fluctuations",
+                text: "Daugiausia stabiliai su nedideliais svyravimais",
                 scores: { happiness: 5, energy: 5, calmness: 8, stress: -5, sadness: -3 }
             },
             {
                 letter: "c",
-                text: "Up and down throughout the day",
+                text: "Tai aukštyn, tai žemyn per dieną",
                 scores: { happiness: -5, energy: -3, calmness: -8, stress: 10, sadness: 5 }
             },
             {
                 letter: "d",
-                text: "Very unpredictable or intense",
+                text: "Labai nenuspėjamai arba intensyviai",
                 scores: { happiness: -10, energy: -8, calmness: -15, stress: 15, sadness: 12 }
             }
         ]
     },
     {
         id: 8,
-        text: "How has your sleep been lately?",
-        category: "Sleep Quality",
+        text: "Kaip sekėsi miegoti pastaruoju metu?",
+        category: "Miego kokybė",
         icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Moon -->
             <path d="M50 15 C35 15 25 28 25 42 C25 56 38 68 52 65 C42 62 35 52 35 40 C35 28 42 20 50 15Z"
@@ -335,30 +335,30 @@ const QUESTIONS = [
         answers: [
             {
                 letter: "a",
-                text: "Great, waking up rested",
+                text: "Puikiai, keliuosi pailsėjęs",
                 scores: { happiness: 12, energy: 15, calmness: 12, stress: -10, sadness: -8 }
             },
             {
                 letter: "b",
-                text: "Decent, could be better",
+                text: "Neblogai, galėtų būti geriau",
                 scores: { happiness: 5, energy: 5, calmness: 5, stress: -3, sadness: -3 }
             },
             {
                 letter: "c",
-                text: "Poor, trouble falling or staying asleep",
+                text: "Prastai, sunku užmigti ar išmiegoti",
                 scores: { happiness: -8, energy: -10, calmness: -8, stress: 12, sadness: 8 }
             },
             {
                 letter: "d",
-                text: "Severely disrupted or barely sleeping",
+                text: "Labai blogai arba beveik nemiegu",
                 scores: { happiness: -12, energy: -15, calmness: -12, stress: 15, sadness: 12 }
             }
         ]
     },
     {
         id: 9,
-        text: "When you think about the future, you feel:",
-        category: "Future Outlook",
+        text: "Kai galvojate apie ateitį, jaučiatės:",
+        category: "Ateities perspektyva",
         icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Road/path -->
             <path d="M20 70 Q30 50 40 40 Q50 30 60 15" stroke="currentColor" stroke-width="8" stroke-linecap="round" opacity="0.2"/>
@@ -381,30 +381,30 @@ const QUESTIONS = [
         answers: [
             {
                 letter: "a",
-                text: "Optimistic and excited",
+                text: "Optimistiškai ir su entuziazmu",
                 scores: { happiness: 15, energy: 12, calmness: 10, stress: -10, sadness: -12 }
             },
             {
                 letter: "b",
-                text: "Cautiously hopeful",
+                text: "Atsargiai viltingai",
                 scores: { happiness: 8, energy: 5, calmness: 5, stress: -3, sadness: -5 }
             },
             {
                 letter: "c",
-                text: "Uncertain or worried",
+                text: "Neužtikrintai arba nerimastingai",
                 scores: { happiness: -5, energy: -5, calmness: -8, stress: 12, sadness: 8 }
             },
             {
                 letter: "d",
-                text: "Hopeless or fearful",
+                text: "Beviltiški arba bijodamas",
                 scores: { happiness: -15, energy: -12, calmness: -12, stress: 15, sadness: 15 }
             }
         ]
     },
     {
         id: 10,
-        text: "How well have you been taking care of yourself?",
-        category: "Self-Care",
+        text: "Kaip gerai rūpinatės savimi?",
+        category: "Savitvarka",
         icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Large heart -->
             <path d="M40 65 L20 45 C10 35 10 20 25 20 C32 20 38 25 40 30 C42 25 48 20 55 20 C70 20 70 35 60 45 L40 65Z"
@@ -423,29 +423,29 @@ const QUESTIONS = [
         answers: [
             {
                 letter: "a",
-                text: "Very well, prioritizing my needs",
+                text: "Labai gerai, skiriu dėmesį savo poreikiams",
                 scores: { happiness: 12, energy: 12, calmness: 12, stress: -10, sadness: -10 }
             },
             {
                 letter: "b",
-                text: "Reasonably well",
+                text: "Pakankamai gerai",
                 scores: { happiness: 5, energy: 5, calmness: 5, stress: -3, sadness: -3 }
             },
             {
                 letter: "c",
-                text: "Neglecting some areas",
+                text: "Kai kurias sritis apleidžiu",
                 scores: { happiness: -5, energy: -8, calmness: -5, stress: 8, sadness: 8 }
             },
             {
                 letter: "d",
-                text: "Completely neglecting myself",
+                text: "Visiškai nesirūpinu savimi",
                 scores: { happiness: -12, energy: -12, calmness: -10, stress: 15, sadness: 15 }
             }
         ]
     }
 ];
 
-// Base score for each dimension (start at 50/100)
+// Pradiniai balai kiekvienai dimensijai (prasideda nuo 50/100)
 const BASE_SCORES = {
     happiness: 50,
     energy: 50,
@@ -454,31 +454,31 @@ const BASE_SCORES = {
     sadness: 50
 };
 
-// Dimension display names and descriptions
+// Dimensijų pavadinimai ir aprašymai
 const DIMENSION_INFO = {
     happiness: {
-        name: "Happiness",
-        description: "Joy, contentment, and pleasure",
+        name: "Laimė",
+        description: "Džiaugsmas, pasitenkinimas ir malonumas",
         positive: true
     },
     energy: {
-        name: "Energy",
-        description: "Motivation, vitality, and drive",
+        name: "Energija",
+        description: "Motyvacija, gyvybingumas ir veržlumas",
         positive: true
     },
     calmness: {
-        name: "Calmness",
-        description: "Peace, relaxation, and serenity",
+        name: "Ramybė",
+        description: "Taika, atsipalaidavimas ir ramumas",
         positive: true
     },
     stress: {
-        name: "Stress",
-        description: "Tension, anxiety, and overwhelm",
+        name: "Stresas",
+        description: "Įtampa, nerimas ir pervargimas",
         positive: false
     },
     sadness: {
-        name: "Sadness",
-        description: "Melancholy and low spirits",
+        name: "Liūdesys",
+        description: "Melancholija ir prislėgta nuotaika",
         positive: false
     }
 };
